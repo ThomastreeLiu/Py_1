@@ -1,0 +1,56 @@
+#%% LAB 1  ENCMP 100 Computer Programming for Engineers
+#
+# Student name:
+# Student CCID:
+# Others:
+#
+# To avoid plagiarism, list the names of others, Version 0 author(s)
+# aside, whose code, words, ideas, images, or data you incorporated.
+# To avoid unauthorized collaboration, list all others, excluding
+# lab instructor and TAs, who gave compositional assistance.
+#
+# After each name, including your own name, enter in parentheses an
+# estimate of the source's contributions in percent. Supply these
+# numbers, which must add to 100%, to receive a nonzero mark.
+#
+# For obscure and anonymous or known and non-human sources, enter
+# pseudonyms or names in uppercase, e.g., DARKWEB or CHATGPT, followed
+# by percentages. Send one email to the lab instructor with copies of
+# obscure and anonymous sources when you submit your assignment.
+#
+#%% HSPECTRUM  Quantum Chemistry and the Hydrogen Emission Spectrum
+#
+# The periodic table is central to chemistry. According to Britannica,
+# "Detailed understanding of the periodic system has developed along with
+# the quantum theory of spectra and the electronic structure of atoms,
+# beginning with the work of Bohr in 1913." In this lab assignment, a
+# University of Alberta student explores the Bohr model's accuracy in
+# predicting the hydrogen emission spectrum, using observed wavelengths
+# from a US National Institute of Standards and Technology database.
+#
+# Copyright (c) 2024, University of Alberta
+# Electrical and Computer Engineering
+# All rights reserved.
+#
+import numpy as np
+import matplotlib.pyplot as plt
+
+#%% EXPERIMENT DATA
+#
+data = [656.460, 486.271, 434.1692, 410.2892] # nm
+nist = np.array(data)
+n = len(nist)
+
+#%% MODEL SETUP
+#
+rydberg = 1.0973732e7 # 1/m
+print("Rydberg constant:", rydberg)
+
+#%% SIMULATION DATA
+#
+nf = input("Final state (nf): ")
+nf = int(nf)
+ni = np.arange(nf + 1, nf + n + 1)
+plt.plot(ni, nist, 'bx')
+plt.grid(True)
+plt.show()
