@@ -1,7 +1,7 @@
 #%% LAB 2  ENCMP 100 Computer Programming for Engineers
 #
-# Student name:
-# Student CCID:
+# Student name: Thomas Liu
+# Student CCID: 1964824
 # Others:
 #
 # To avoid plagiarism, list the names of others, Version 0 author(s)
@@ -34,6 +34,25 @@ import numpy as np
 
 #%% PARSE INPUT
 #
-numStr = input('Enter a number to check: ')
-digits = np.array(list(numStr), dtype=int)
-print("Digits entered: %s" % digits)
+numstr = input("Enter a number to check")
+validate = True
+if (len(numstr) != 11):
+    print("Not eleven digits")
+    validate = False
+    exit()
+
+test_string_first = 0
+for i in range(0, 5):
+    test_string_first = test_string_first + int(numstr[i])
+test_string_last = 0
+for i in range(6, 11):
+    test_string_last = test_string_last + int(numstr[i])
+
+if(test_string_first % 2 == 1 or test_string_last % 2 == 1):
+    validate = False
+    print("A digit sum is odd")
+
+if not validate:
+    exit()
+
+
